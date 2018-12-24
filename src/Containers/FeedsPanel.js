@@ -3,7 +3,12 @@ import { Panel, ListGroup, ListGroupItem } from 'react-bootstrap';
 
 class FeedsPanel extends Component {
 
-    
+
+    renderFeedList = feedList => {
+      return feedList.feeds.map((value,index) =>
+        <ListGroupItem key={index} onClick={() => this.props.handleFeedClick(index)}>{value.name}</ListGroupItem>
+      );  
+    }  
   
     render() {
       return (
@@ -12,7 +17,7 @@ class FeedsPanel extends Component {
             <Panel.Title componentClass="h3">Feeds</Panel.Title>
           </Panel.Heading>
           <ListGroup>
-            <ListGroupItem>Item 1</ListGroupItem>
+            {this.renderFeedList(this.props.feeds)}
           </ListGroup>
         </Panel>
         
