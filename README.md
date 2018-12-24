@@ -9,3 +9,14 @@ I noticed that several of the projects I have plans to work on shared a common b
 ## Basic Architecture
 
 The base reader interface is built using React and Redux along with the React-Bootstrap UI component library
+
+
+## TODO:
+
+1 Determine how much common functionality should go into this basic template
+    - basic architecture should be the same between projects using this template
+    - most Redux functionality should be the same between template
+
+2 Determine how much common styling should go into this basic template
+    - Should it just be a basic template with no styling except layout code?
+    - Full styling to use styling code as a template as well?
