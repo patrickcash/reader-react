@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { Panel, ListGroup, ListGroupItem } from 'react-bootstrap';
 
-class FeedsPanel extends Component {
+class FeedSidebar extends Component {
 
 
-    renderFeedList = feedList => {
-      return feedList.feeds.map((value,index) =>
-        <ListGroupItem key={index} onClick={() => this.props.handleFeedClick(index)}>{value.name}</ListGroupItem>
+    renderFeedList = feeds => {
+      return feeds.map((item,index) =>
+        <ListGroupItem key={index} onClick={() => this.props.handleFeedClick(index)}>{item.name}</ListGroupItem>
       );  
     }  
   
@@ -25,4 +25,4 @@ class FeedsPanel extends Component {
     }
   }
   
-  export default FeedsPanel;
+  export default FeedSidebar;

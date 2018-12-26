@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { Panel, ListGroup, ListGroupItem } from 'react-bootstrap';
 
-class FeedItemsPanel extends Component {
+class ItemList extends Component {
 
     renderFeedItems = feedItems => {
-      return feedItems.map((value,index) =>
-        <ListGroupItem key={"feedItem"+index} header={value.title} onClick={() => this.props.handleFeedItemClick(index)}>{value.author}</ListGroupItem>
+      return feedItems.map((item,index) =>
+        <ListGroupItem key={"item"+index} header={item.title} onClick={() => this.props.handleFeedItemClick(index)}>{item.author}</ListGroupItem>
       );  
     }  
   
@@ -37,4 +37,4 @@ class FeedItemsPanel extends Component {
     }
   }
   
-  export default FeedItemsPanel;
+  export default ItemList;

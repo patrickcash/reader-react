@@ -1,11 +1,11 @@
 import React, { Component }  from 'react';
 import { Grid, Row, Col, Navbar } from 'react-bootstrap';
-import FeedsPanel from './Containers/FeedsPanel.js'
-import FeedItemsPanel from './Containers/FeedItemsPanel.js'
-import ItemContentPanel from './Containers/ItemContentPanel.js'
+import FeedSidebar from './Containers/FeedSidebar.js'
+import ItemList from './Containers/ItemList.js'
+import ItemContent from './Containers/ItemContent.js'
 
 import './App.css';
-//import 'bootstrap/dist/css/bootstrap.css';
+
 
 class App extends Component {
 
@@ -16,32 +16,32 @@ class App extends Component {
       feedList: {
           "feeds": [
           {
-            name: "Programming",
-            feedURL: "https://www.reddit.com/r/programming.rss"
-          },
-          {
-            name: "Web Development",
+            name: "Reddit: Web Development",
             feedURL: "https://www.reddit.com/r/webdev.rss"
           },
           {
-            name: "Javascript",
+            name: "Reddit: Javascript",
             feedURL: "https://www.reddit.com/r/JavaScript.rss"
           },
           {
-            name: "React",
+            name: "Reddit: React",
             feedURL: "https://www.reddit.com/r/reactjs.rss"
           },
           {
-            name: "Front-end Development",
+            name: "Reddit: Front-end Development",
             feedURL: "https://www.reddit.com/r/Frontend.rss"
           },
           {
-            name: "Flowing Data",
-            feedURL: "https://flowingdata.com/feed/"
+            name: "Reddit: Data Science",
+            feedURL: "https://www.reddit.com/r/datascience.rss"
           },
           {
-            name: "The Economist - Graphic",
-            feedURL: "http://www.economist.com/graphic-detail/rss.xml"
+            name: "Reddit: Data is beautiful",
+            feedURL: "https://www.reddit.com/r/dataisbeautiful.rss"
+          },
+          {
+            name: "Reddit: Machine Learning",
+            feedURL: "https://www.reddit.com/r/MachineLearning.rss"
           },
         ]},
       feedItems:{},
@@ -65,7 +65,6 @@ class App extends Component {
       fetch(parseURL + feedURL)
       .then(response => response.json())
       .then(json => {
-        //console.log(JSON.stringify(json.items));
         if(json.status === "ok"){
           this.setState({feedItems: json.items, feedItemContent: json.items[0]}) // auto select first feed item
         }
@@ -99,13 +98,13 @@ class App extends Component {
           </Row>
           <Row>
             <Col md={3} style={{paddingLeft: 5, paddingRight:5}}>
-              <FeedsPanel feeds={this.state.feedList} handleFeedClick={this.handleFeedClick}/>
+              <FeedSidebar feeds={this.state.feedList.feeds} handleFeedClick={this.handleFeedClick}/>
             </Col>
             <Col md={3} style={{paddingLeft: 5, paddingRight:5}}>
-              <FeedItemsPanel feedItems={this.state.feedItems} handleFeedItemClick={this.handleFeedItemClick}/>
+              <ItemList feedItems={this.state.feedItems} handleFeedItemClick={this.handleFeedItemClick}/>
             </Col>
             <Col md={6} style={{paddingLeft: 5, paddingRight:5}}>
-              <ItemContentPanel feedItemContent={this.state.feedItemContent}/>
+              <ItemContent feedItemContent={this.state.feedItemContent}/>
             </Col>
           </Row>
         </Grid> 

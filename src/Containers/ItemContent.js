@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Panel } from 'react-bootstrap';
 import renderHTML from 'react-render-html';
 
-class ItemContentPanel extends Component {
+class ItemContent extends Component {
   
     renderItemLink = itemContent => {
       if(!itemContent.link){
@@ -17,7 +17,6 @@ class ItemContentPanel extends Component {
     }  
 
     renderItemPubDate = itemContent => {
-      console.log(itemContent);
       if(!itemContent.pubDate){
         return null;
       }
@@ -71,5 +70,5 @@ class ItemContentPanel extends Component {
     }
   }
   
-  export default ItemContentPanel;
+  export default ItemContent;
   
