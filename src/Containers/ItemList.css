@@ -1,0 +1,16 @@
+#item-header {
+    font-weight: bold;
+}
+
+#item-list {
+    max-height: 100vh;
+    overflow: auto;
+}
+
+#group-item-heading {
+    font-weight: bold;
+}
+
+#group-item-author {
+    font-style: italic;
+}

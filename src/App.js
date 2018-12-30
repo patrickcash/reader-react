@@ -4,6 +4,7 @@ import FeedSidebar from './Containers/FeedSidebar.js'
 import ItemList from './Containers/ItemList.js'
 import ItemContent from './Containers/ItemContent.js'
 
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 
@@ -84,9 +85,9 @@ class App extends Component {
 
   render() {
     return (
-      <Container fluid={true}>
+      <Container fluid={true} className="app-container">
           <Row>
-            <Col md={12} className="mainColumn">
+            <Col md={12} className="navbar-column">
               <Navbar className="navbar">
                 <NavbarBrand>
                   Reader
@@ -95,19 +96,19 @@ class App extends Component {
             </Col>
           </Row>
           <Row>
-            <Col md={3} className="mainColumn">
-              <FeedSidebar feeds={this.state.feedList.feeds} handleFeedClick={this.handleFeedClick}/>
+            <Col md={3} className="sidebar-column">
+              <FeedSidebar className="sidebar" feeds={this.state.feedList.feeds} handleFeedClick={this.handleFeedClick}/>
             </Col>
-            <Col md={3} className="mainColumn">
-              <ItemList feedItems={this.state.feedItems} handleFeedItemClick={this.handleFeedItemClick}/>
+            <Col md={3} className="items-column">
+              <ItemList className="item-list" feedItems={this.state.feedItems} handleFeedItemClick={this.handleFeedItemClick}/>
             </Col>
-            <Col md={6} className="mainColumn">
-              <ItemContent feedItemContent={this.state.feedItemContent}/>
+            <Col md={6} className="content-column">
+              <ItemContent className="item-content" feedItemContent={this.state.feedItemContent}/>
             </Col>
           </Row>
           <Row>
-            <Col md={12} className="mainColumn">
-              <dov className="footer"></dov>
+            <Col md={12} className="footer-column">
+              <div className="navbar footer"></div>
             </Col>
           </Row>
         </Container> 

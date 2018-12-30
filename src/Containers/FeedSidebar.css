@@ -1,0 +1,19 @@
+#feed-card {
+    border-color: dimgrey;
+}
+#feed-header {
+    background-color: dimgrey; 
+    border-color: dimgrey;
+    font-weight: bold;
+    color: lightgrey;
+}
+
+#feed-list {
+    max-height: 100vh;
+    overflow: auto;
+}
+
+#feed {
+    background-color: dimgrey;
+    color: lightgrey;
+}

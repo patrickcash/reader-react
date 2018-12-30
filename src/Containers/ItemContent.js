@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Card, CardHeader, CardBody, CardText } from 'reactstrap';
 import renderHTML from 'react-render-html';
 
+import './ItemContent.css';
+
 class ItemContent extends Component {
   
     renderItemLink = itemContent => {
@@ -11,18 +13,6 @@ class ItemContent extends Component {
       return (
         <div>
           <span>URL: <a target="_blank" rel="noopener noreferrer" href={itemContent.link}>{itemContent.link}</a></span>
-          <hr/>
-        </div>
-      );
-    }  
-
-    renderItemPubDate = itemContent => {
-      if(!itemContent.pubDate){
-        return null;
-      }
-      return (
-        <div>
-          <p>Published: {itemContent.pubDate}</p>
           <hr/>
         </div>
       );
@@ -43,8 +33,8 @@ class ItemContent extends Component {
     render() {
       if(JSON.stringify(this.props.feedItemContent) === JSON.stringify({})){
         return (
-          <Card>
-            <CardHeader>Content Area</CardHeader>
+          <Card id="content-card">
+            <CardHeader id="content=header">Content Area</CardHeader>
             <CardBody>
               <CardText>Select a feed item to see its content</CardText>
             </CardBody>
@@ -53,12 +43,11 @@ class ItemContent extends Component {
       }
       else{
         return (
-          <Card>
-            <CardHeader>{this.props.feedItemContent.title}</CardHeader>
-            <CardBody>
+          <Card id="content-card">
+            <CardHeader id="content=header">{this.props.feedItemContent.title}</CardHeader>
+            <CardBody id="content-body">
               <CardText>
                 {this.renderItemLink(this.props.feedItemContent)}
-                {this.renderItemPubDate(this.props.feedItemContent)}
                 {this.renderItemContent(this.props.feedItemContent)}
               </CardText>
             </CardBody>
