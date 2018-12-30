@@ -1,5 +1,5 @@
 import React, { Component }  from 'react';
-import { Grid, Row, Col, Navbar } from 'react-bootstrap';
+import { Container, Row, Col, Navbar, NavbarBrand } from 'reactstrap';
 import FeedSidebar from './Containers/FeedSidebar.js'
 import ItemList from './Containers/ItemList.js'
 import ItemContent from './Containers/ItemContent.js'
@@ -84,30 +84,33 @@ class App extends Component {
 
   render() {
     return (
-      <Grid fluid={true}>
+      <Container fluid={true}>
           <Row>
-            <Col md={12}>
-              <Navbar fluid={true}>
-                <Navbar.Header>
-                  <Navbar.Brand>
-                    Reader
-                  </Navbar.Brand>
-                </Navbar.Header>
+            <Col md={12} className="mainColumn">
+              <Navbar className="navbar">
+                <NavbarBrand>
+                  Reader
+                </NavbarBrand>
               </Navbar>
             </Col>
           </Row>
           <Row>
-            <Col md={3} style={{paddingLeft: 5, paddingRight:5}}>
+            <Col md={3} className="mainColumn">
               <FeedSidebar feeds={this.state.feedList.feeds} handleFeedClick={this.handleFeedClick}/>
             </Col>
-            <Col md={3} style={{paddingLeft: 5, paddingRight:5}}>
+            <Col md={3} className="mainColumn">
               <ItemList feedItems={this.state.feedItems} handleFeedItemClick={this.handleFeedItemClick}/>
             </Col>
-            <Col md={6} style={{paddingLeft: 5, paddingRight:5}}>
+            <Col md={6} className="mainColumn">
               <ItemContent feedItemContent={this.state.feedItemContent}/>
             </Col>
           </Row>
-        </Grid> 
+          <Row>
+            <Col md={12} className="mainColumn">
+              <dov className="footer"></dov>
+            </Col>
+          </Row>
+        </Container> 
     );
   }
 }

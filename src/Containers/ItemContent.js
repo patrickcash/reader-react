@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Panel } from 'react-bootstrap';
+import { Card, CardHeader, CardBody, CardText } from 'reactstrap';
 import renderHTML from 'react-render-html';
 
 class ItemContent extends Component {
@@ -43,28 +43,26 @@ class ItemContent extends Component {
     render() {
       if(JSON.stringify(this.props.feedItemContent) === JSON.stringify({})){
         return (
-          <Panel>
-          <Panel.Heading>
-            <Panel.Title componentClass="h3">Content Area</Panel.Title>
-          </Panel.Heading>
-            <Panel.Body>
-              Select a feed item to see its content
-            </Panel.Body>
-        </Panel>
+          <Card>
+            <CardHeader>Content Area</CardHeader>
+            <CardBody>
+              <CardText>Select a feed item to see its content</CardText>
+            </CardBody>
+        </Card>
         );
       }
       else{
         return (
-          <Panel>
-          <Panel.Heading>
-            <Panel.Title componentClass="h3">{this.props.feedItemContent.title}</Panel.Title>
-          </Panel.Heading>
-            <Panel.Body>
-              {this.renderItemLink(this.props.feedItemContent)}
-              {this.renderItemPubDate(this.props.feedItemContent)}
-              {this.renderItemContent(this.props.feedItemContent)}
-            </Panel.Body>
-        </Panel>
+          <Card>
+            <CardHeader>{this.props.feedItemContent.title}</CardHeader>
+            <CardBody>
+              <CardText>
+                {this.renderItemLink(this.props.feedItemContent)}
+                {this.renderItemPubDate(this.props.feedItemContent)}
+                {this.renderItemContent(this.props.feedItemContent)}
+              </CardText>
+            </CardBody>
+          </Card>
         );
       }
     }

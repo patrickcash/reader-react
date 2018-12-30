@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Panel, ListGroup, ListGroupItem } from 'react-bootstrap';
+import { Card, CardHeader, ListGroup, ListGroupItem } from 'reactstrap';
 
 class FeedSidebar extends Component {
 
@@ -12,14 +12,12 @@ class FeedSidebar extends Component {
   
     render() {
       return (
-        <Panel>
-          <Panel.Heading>
-            <Panel.Title componentClass="h3">Feeds</Panel.Title>
-          </Panel.Heading>
-          <ListGroup>
+        <Card>
+          <CardHeader>Feeds</CardHeader>
+          <ListGroup flush>
             {this.renderFeedList(this.props.feeds)}
           </ListGroup>
-        </Panel>
+        </Card>
         
       );
     }
