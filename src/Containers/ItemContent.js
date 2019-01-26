@@ -1,61 +1,57 @@
 import React, { Component } from 'react';
-import { Card, CardHeader, CardBody, CardText } from 'reactstrap';
+import { Card, CardBody, CardText, CardLink } from 'reactstrap';
 import renderHTML from 'react-render-html';
+import { connect } from 'react-redux';
+import isEmpty from 'lodash/isEmpty';
 
 import './ItemContent.css';
 
 class ItemContent extends Component {
   
-    renderItemLink = itemContent => {
-      if(!itemContent.link){
-        return null;
-      }
-      return (
-        <div>
-          <span>URL: <a target="_blank" rel="noopener noreferrer" href={itemContent.link}>{itemContent.link}</a></span>
-          <hr/>
-        </div>
-      );
-    }  
-
-    renderItemContent = itemContent => {
-      if(!itemContent.content){
-        return null;
-      }
-      return (
-        <div>
-          {renderHTML(itemContent.content)};
-          <hr/>
-        </div>
-      );
-    }  
-
-    render() {
-      if(JSON.stringify(this.props.feedItemContent) === JSON.stringify({})){
-        return (
-          <Card id="content-card">
-            <CardHeader id="content=header">Content Area</CardHeader>
-            <CardBody>
-              <CardText>Select a feed item to see its content</CardText>
-            </CardBody>
-        </Card>
-        );
-      }
-      else{
-        return (
-          <Card id="content-card">
-            <CardHeader id="content=header">{this.props.feedItemContent.title}</CardHeader>
-            <CardBody id="content-body">
-              <CardText>
-                {this.renderItemLink(this.props.feedItemContent)}
-                {this.renderItemContent(this.props.feedItemContent)}
-              </CardText>
-            </CardBody>
-          </Card>
-        );
-      }
+  renderItemLink = itemContent => {
+    if(!itemContent.link){
+      return null;
     }
+    return (
+      <div>
+        <CardLink href={itemContent.link}>{itemContent.link}</CardLink>
+        <hr/>
+      </div>
+    );
+  }  
+
+  renderItemContent = itemContent => {
+    if(!itemContent.content){
+      return null;
+    }
+    return (
+      <div>
+        {renderHTML(itemContent.content)};
+        <hr/>
+      </div>
+    );
+  }  
+
+  render() {
+    return (
+      <Card id="content-card">
+        <CardBody id="content-body">
+        { isEmpty(this.props.feedItemContent)
+          ? <CardText>Select a feed item to see its content</CardText>
+          : 
+          <div>
+            {this.renderItemLink(this.props.feedItemContent)}
+            {this.renderItemContent(this.props.feedItemContent)}
+          </div>
+        }
+        </CardBody>
+      </Card>
+    );
   }
-  
-  export default ItemContent;
-  
+}
+
+const mapStateToProps = state => ({
+  feedItemContent: state.feedItemContent
+})
+
+export default connect (mapStateToProps, null)(ItemContent);

@@ -17,3 +17,9 @@
     background-color: dimgrey;
     color: lightgrey;
 }
+
+#feed.active {
+    border-color: grey;
+    background-color: grey;
+    color: lightgrey;
+}

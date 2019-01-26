@@ -7,10 +7,16 @@
     overflow: auto;
 }
 
-#group-item-heading {
+#feed-item.active {
+    border-color: grey;
+    background-color: grey;
+    color: lightgrey;
+}
+
+#feed-item-heading {
     font-weight: bold;
 }
 
-#group-item-author {
+#feed-item-author {
     font-style: italic;
 }
