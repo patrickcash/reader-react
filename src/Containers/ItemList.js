@@ -16,8 +16,11 @@ class ItemList extends Component {
   }
 
   componentDidUpdate(prevProps){
-    if(isEmpty(prevProps.feedItems)){
+    if(prevProps.feedItems !== this.props.feedItems){
       this.props.getFeedItem(0);
+      if(this.state.activeFeedItem !== 0){
+        this.setState({activeFeedItem: 0});
+      }
     }
   }
 
