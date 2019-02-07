@@ -9,3 +9,7 @@ I noticed that several of the projects I have plans to work on shared a common b
 ## Basic Architecture
 
 The base reader interface is built using React and Redux along with the Reactstrap UI component library
+
+## Screenshot
+
+![ScreenShot](screenshot.png)

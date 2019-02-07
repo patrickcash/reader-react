@@ -6,8 +6,14 @@ import isEmpty from 'lodash/isEmpty';
 
 import './ItemContent.css';
 
+/*
+ * Displays the content of the individual feed item
+ */
 class ItemContent extends Component {
   
+  /*
+   * Render the link back to the item content
+   */
   renderItemLink = itemContent => {
     if(!itemContent.link){
       return null;
@@ -20,6 +26,9 @@ class ItemContent extends Component {
     );
   }  
 
+  /*
+   * Render the html content for the selected item
+   */
   renderItemContent = itemContent => {
     if(!itemContent.content){
       return null;

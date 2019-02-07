@@ -6,6 +6,9 @@ import isEmpty from 'lodash/isEmpty';
 
 import './ItemList.css';
 
+/*
+ * Displays all of the items available for the selected feed
+ */
 class ItemList extends Component {
 
   constructor(){
@@ -15,6 +18,9 @@ class ItemList extends Component {
     };
   }
 
+  /*
+   * Select the first item in the feed to display the content of that item in the item content card
+   */
   componentDidUpdate(prevProps){
     if(prevProps.feedItems !== this.props.feedItems){
       this.props.getFeedItem(0);
@@ -24,6 +30,9 @@ class ItemList extends Component {
     }
   }
 
+  /*
+   * Display the content of the selected item in the item content card
+   */
   handleFeedItemClick = index => {
     this.props.getFeedItem(index);
     this.setState({activeFeedItem: index});

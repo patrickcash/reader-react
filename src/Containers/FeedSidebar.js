@@ -6,6 +6,9 @@ import isEmpty from 'lodash/isEmpty';
 
 import './FeedSidebar.css';
 
+/*
+ * Displays all of the feeds the user is subscibed to
+ */
 class FeedSidebar extends Component {
 
   constructor(){
@@ -16,12 +19,15 @@ class FeedSidebar extends Component {
   }
 
   /*
-  * Load the initial feed list into the feeds side bar
+  * Load the initial feed list into the list
   */
   componentDidMount(){
     this.props.getFeedList();
   }
 
+  /*
+   * Select to first feed in the list to populate the feed item list
+   */
   componentDidUpdate(prevProps){
     if(isEmpty(prevProps.feedList)){
       this.props.getFeed(this.props.feedList.feeds[0].feedURL)
@@ -29,7 +35,7 @@ class FeedSidebar extends Component {
   }
 
   /*
-  * Load the feed items for the feed the user selected
+  * Load the feed items for selected feed
   */
   handleFeedClick = index => {
     this.props.getFeed(this.props.feedList.feeds[index].feedURL)
