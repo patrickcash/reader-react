@@ -13,32 +13,27 @@ class App extends Component {
   render() {
     return (
       <Container fluid={true} className="app-container">
-          <Row>
-            <Col md={12} className="navbar-column">
-              <Navbar className="navbar">
-                <NavbarBrand>
-                  Reader
-                </NavbarBrand>
-              </Navbar>
-            </Col>
-          </Row>
-          <Row>
-            <Col md={3} className="sidebar-column">
-              <FeedSidebar className="sidebar"/>
-            </Col>
-            <Col md={3} className="items-column">
-              <ItemList className="item-list"/>
-            </Col>
-            <Col md={6} className="content-column">
-              <ItemContent className="item-content"/>
-            </Col>
-          </Row>
-          <Row>
-            <Col md={12} className="footer-column">
-              <div className="navbar footer"></div>
-            </Col>
-          </Row>
-        </Container> 
+        <Row>
+          <Col md={12} className="navbar-column">
+            <Navbar className="navbar">
+              <NavbarBrand>
+                Reader
+              </NavbarBrand>
+            </Navbar>
+          </Col>
+        </Row>
+        <Row>
+          <Col md={2} className="sidebar-column">
+            <FeedSidebar className="sidebar"/>
+          </Col>
+          <Col md={3} className="items-column">
+            <ItemList className="item-list"/>
+          </Col>
+          <Col md={7} className="content-column">
+            <ItemContent className="item-content"/>
+          </Col>
+        </Row>
+      </Container> 
     );
   }
 }

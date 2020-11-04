@@ -1,51 +1,46 @@
 .app-container {
-    max-height: 100vh; /* For 100% screen height */
-    max-width:  100vw; /* For 100% screen width */
+  max-height: 100vh;
+  max-width: 100vw;
 }
 
 .navbar-column {
-    padding-right: 0px;
-    padding-left: 0px;
+  padding-right: 0px;
+  padding-left: 0px;
 }
 
 .navbar {
-    background-color: dimgrey; 
-    border-color: dimgrey;
-    color: lightgrey;
-    padding-right: 5px;
-    padding-left: 5px;
+  background-color: forestgreen;
+  border-color: forestgreen;
+  padding-right: 5px;
+  padding-left: 20px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+.navbar-brand {
+  color: white;
+  font-weight: bold;
+  font-size: 30px;
 }
 
 .sidebar-column {
-    padding-right: 0px;
-    padding-left: 0px;
-    background-color: dimgrey; 
-    border-color: dimgrey;
+  padding-right: 0px;
+  padding-left: 0px;
+  background-color: lightgrey;
+  border-color: lightgrey;
+  max-height: 100%;
 }
 
 .items-column {
-    padding-right: 0px;
-    padding-left: 0px;
-    background-color: white; 
+  padding-right: 0px;
+  padding-left: 0px;
+  background-color: white;
+  max-height: 100%;
 }
 
 .content-column {
-    padding-right: 0px;
-    padding-left: 5px;
-    background-color: white; 
-}
-
-.footer-column {
-    padding-right: 0px;
-    padding-left: 0px;
-}
-
-.footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 10px;
-    background-color: dimgrey; 
-    border-color: dimgrey;
+  padding-right: 0px;
+  padding-left: 5px;
+  background-color: white;
+  max-height: 100%;
 }

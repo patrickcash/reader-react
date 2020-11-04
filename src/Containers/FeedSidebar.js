@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, CardHeader, ListGroup, ListGroupItem } from 'reactstrap';
+import { Card, ListGroup, ListGroupItem } from 'reactstrap';
 import { connect } from 'react-redux';
 import { getFeedList, getFeed } from '../actions/FeedActions';
 import isEmpty from 'lodash/isEmpty';
@@ -53,7 +53,6 @@ class FeedSidebar extends Component {
   render() {
     return (
       <Card id="feed-card">
-        <CardHeader id="feed-header">Feeds</CardHeader>
         <ListGroup flush id="feed-list">
           {isEmpty(this.props.feedList)
             ? <ListGroup id="item-list">

@@ -1,22 +1,33 @@
-#item-header {
-    font-weight: bold;
+#item-card {
+  height: 100%;
+  margin-top: 10px;
+  border-color: white;
 }
 
 #item-list {
-    max-height: 100vh;
-    overflow: auto;
+  height: 100%;
+  overflow: auto;
+}
+
+#feed-item {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  padding-left: 10px;
+  border-color: white;
 }
 
 #feed-item.active {
-    border-color: grey;
-    background-color: grey;
-    color: lightgrey;
+  border-color: white;
+  background-color: white;
+  color: forestgreen;
 }
 
 #feed-item-heading {
-    font-weight: bold;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 0px;
 }
 
 #feed-item-author {
-    font-style: italic;
+  font-weight: italic;
 }

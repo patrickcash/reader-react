@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, CardBody, CardText, CardLink } from 'reactstrap';
+import { Card, CardHeader, CardBody, CardText, CardLink } from 'reactstrap';
 import renderHTML from 'react-render-html';
 import { connect } from 'react-redux';
 import isEmpty from 'lodash/isEmpty';
@@ -19,8 +19,8 @@ class ItemContent extends Component {
       return null;
     }
     return (
-      <div>
-        <CardLink href={itemContent.link}>{itemContent.link}</CardLink>
+      <div id="card-link">
+        <CardLink href={itemContent.link}>Visit Website</CardLink>
         <hr/>
       </div>
     );
@@ -44,14 +44,15 @@ class ItemContent extends Component {
   render() {
     return (
       <Card id="content-card">
+        <CardHeader id="content-header">{this.props.feedItemContent.title}</CardHeader>
         <CardBody id="content-body">
         { isEmpty(this.props.feedItemContent)
           ? <CardText>Select a feed item to see its content</CardText>
           : 
-          <div>
-            {this.renderItemLink(this.props.feedItemContent)}
+          <CardText>
             {this.renderItemContent(this.props.feedItemContent)}
-          </div>
+            {this.renderItemLink(this.props.feedItemContent)}
+          </CardText>
         }
         </CardBody>
       </Card>
